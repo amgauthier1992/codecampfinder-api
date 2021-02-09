@@ -2,7 +2,7 @@
 
 Find a coding bootcamp that's right for you. Search for coding bootcamps and their associated course offerings based on your location and individualized criteria.
 
-This is the backend for `customURL`. A live version of the app can be found at [customURL](customURL)
+This is the backend for the CodeCampFinder client. A live version of the app can be found at [https://codecampfinder.vercel.app/](https://codecampfinder.vercel.app/)
 
 The front end client can be found at [https://github.com/amgauthier1992/codecampfinder](https://github.com/amgauthier1992/codecampfinder).
 
