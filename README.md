@@ -17,13 +17,6 @@ _Disclaimer_ - Information regarding bootcamps and courses, especially informati
 - Implement a portal specific to bootcamp administrators that allows them to update pertinent information for their bootcamp and individual course offerings.
 - Allow admins to add new courses to their bootcamps course catalog.
 
-## Quick App Demo
-
-![Login](https://i.imgur.com/KEI6rrS.png)
-![Dashboard](https://i.imgur.com/T8urHrY.png)
-![Search](https://i.imgur.com/8rwZH5P.png)
-![Results](https://i.imgur.com/9wJp1PK.png)
-
 ## Technology
 
 #### Back End
