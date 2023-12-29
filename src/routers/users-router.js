@@ -85,7 +85,12 @@ usersRouter
                       return res.status( 406 ).send( 'Something went wrong' );
                     }
                     else {
-                      return res.status( 202 ).json({ token } ) 
+                      return res.status( 200 ).json({ 
+                        token, 
+                        username: loginUser.user_name, 
+                        firstName: dbUser.first_name, 
+                        lastName: dbUser.last_name 
+                      }) 
                     }
                   })
               }
