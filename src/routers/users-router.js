@@ -80,7 +80,7 @@ usersRouter
                     first_name: dbUser.first_name,
                     last_name: dbUser.last_name
                   }
-                  jwt.sign(payload, JWT_SECRET, { expiresIn: '30m' }, function(err, token) {
+                  jwt.sign(payload, JWT_SECRET, { expiresIn: '1m' }, function(err, token) {
                     if (err) {
                       return res.status( 406 ).send( 'Something went wrong' );
                     }
