@@ -145,7 +145,9 @@ usersRouter
 
               UsersRepo.getUserCourses(knexInstance, user_name)
                 .then(userCourses => {
+                  logger.info(userCourses);
                   const match = userCourses.find((userCourse) => userCourse.course_id === bootcamp.Course_id)
+                  logger.info(match);
                   if(match){
                     return res.status(400).send( { message: `Course already has been added`} );
                   }
@@ -154,6 +156,7 @@ usersRouter
 
               UsersRepo.addUserCourse(knexInstance, userCourse)
                 .then(course => {
+                  logger.info(course);
                   return res.status(201).json(course);
                 })
                 .catch(next);
