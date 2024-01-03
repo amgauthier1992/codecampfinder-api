@@ -149,7 +149,7 @@ usersRouter
                   const match = userCourses.find((userCourse) => userCourse.CourseId === bootcamp.Course_id);
                   console.log(match);
                   if(match){
-                    return res.status(400).send( { message: `Course already has been added`} );
+                    return res.status(400).send( { message: `Course has already been added`} );
                   } else {
                     UsersRepo.addUserCourse(knexInstance, userCourse)
                       .then(course => {
