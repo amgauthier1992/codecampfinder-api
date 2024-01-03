@@ -126,9 +126,9 @@ usersRouter
         })
       
       const bootcampName = req.body.Bootcamp;
-      const courseName = req.body.Course.Name;
-      const user_name = req.body.UserName;
-      const schedule = req.body.Course.Schedule.Type;
+      const courseName = req.body.Course;
+      const user_name = req.headers.authorization.split(' ')[1].user_name;
+      const schedule = req.body.Schedule;
       const knexInstance = req.app.get('db');
       
       //look up course by bootcamp and course name
