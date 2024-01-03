@@ -127,7 +127,7 @@ usersRouter
       
       const bootcampName = req.body.Bootcamp;
       const courseName = req.body.Course;
-      const user_name = req.headers.authorization.split(' ')[1].user_name;
+      const user_name = jwt.decode(req.headers.authorization.split(' ')[1]).user_name;
       const schedule = req.body.Schedule;
       const knexInstance = req.app.get('db');
       
