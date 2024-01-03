@@ -143,6 +143,15 @@ usersRouter
             .then(schedule => {
               userCourse.schedule_type = schedule.id;
 
+              UsersRepo.getUserCourses(knexInstance, user_name)
+                .then(userCourses => {
+                  const match = userCourses.find((userCourse) => userCourse.course_id === bootcamp.Course_id)
+                  if(match){
+                    return res.status(400).send( { message: `Course already has been added`} );
+                  }
+                })
+                .catch(next);
+
               UsersRepo.addUserCourse(knexInstance, userCourse)
                 .then(course => {
                   return res.status(201).json(course);
@@ -150,6 +159,18 @@ usersRouter
                 .catch(next);
             })
             .catch(next);
+
+          // CourseRepo.getScheduleByCourseAndSchedule(knexInstance, bootcamp.Course_id, schedule)
+          //   .then(schedule => {
+          //     userCourse.schedule_type = schedule.id;
+
+          //     UsersRepo.addUserCourse(knexInstance, userCourse)
+          //       .then(course => {
+          //         return res.status(201).json(course);
+          //       })
+          //       .catch(next);
+          //   })
+          //   .catch(next);
     
         })
   })
