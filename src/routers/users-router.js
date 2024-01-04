@@ -192,13 +192,17 @@ usersRouter
     const { course_id } = req.params;
     const token = jwt.decode(req.headers.authorization.split(' ')[1]);
     const knexInstance = req.app.get('db');
+    console.log(course_id);
 
     UsersRepo.getUserCourseSchedule(knexInstance, course_id)
       .then(schedule => {
+        console.log(schedule, schedule.id);
         const schedule_type = schedule.id;
+        console.log(schedule_type);
 
         UsersRepo.deleteUserCourse(knexInstance, course_id, token.user_name, schedule_type)
           .then(numRowsAffected => {
+            console.log(numRowsAffected);
             if(numRowsAffected !== 1) {
               logger.error(`Course with id ${course_id} not found.`);
               return res.status(404).json({
