@@ -54,17 +54,26 @@ module.exports = {
       .where('uc.user_name', user_name)
   },
   getUserCourseSchedule(knex, course_id){
-    return knex('courses as c')
-      .select(
-        'cs.id'
-        ,'cs.schedule as type'
-        ,'cs.hours'
-        ,'cs.duration'
-      )
-      .innerJoin('course_schedules as cs', 'c.id', '=', 'cs.course_id')
-      .innerJoin('user_courses as uc', 'c.id', '=', 'uc.course_id', 'cs.id', '=', 'uc.schedule_type')
-      .where('c.id', course_id)
-      .first()
+    // return knex('courses as c')
+    //   .select(
+    //     'cs.id'
+    //     ,'cs.schedule as type'
+    //     ,'cs.hours'
+    //     ,'cs.duration'
+    //   )
+    //   .innerJoin('course_schedules as cs', 'c.id', '=', 'cs.course_id')
+    //   .innerJoin('user_courses as uc', 'c.id', '=', 'uc.course_id', 'cs.id', '=', 'uc.schedule_type')
+    //   .where('c.id', course_id)
+    //   .first()
+    return knex.raw(`
+      SELECT cs.id, cs.schedule AS type, cs.hours, cs.duration
+      FROM courses AS c
+      INNER JOIN course_schedules AS cs ON c.id = cs.course_id
+      INNER JOIN user_courses AS uc ON c.id = uc.course_id AND cs.id = uc.schedule_type
+      WHERE c.id = ?
+      LIMIT 1;
+    `, [course_id])
+    .then(result => result.rows[0]);
   },
   getUserCoursePaymentSummary(knex, course_id){
     return knex('courses as c')
