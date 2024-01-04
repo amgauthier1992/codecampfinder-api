@@ -53,13 +53,13 @@ VALUES
 (34, 'part_time', 20, 10),
 (35, 'part_time', 20, 10),
 (36, 'part_time', 20, 10),
-(37, 'part_time', 20, 10),
-(38, 'full_time', 60, 9),
-(38, 'part_time', 20, 24),
-(39, 'full_time', 45, 36),
-(39, 'part_time', 15, 24),
-(40, 'full_time', 45, 36),
-(40, 'part_time', 15, 24),
+(37, 'part_time', 20, 10), 
+(38, 'full_time', 60, 9), --49
+(38, 'part_time', 20, 24), --50
+(39, 'full_time', 45, 36), --51
+(39, 'part_time', 15, 24), --52
+(40, 'full_time', 45, 36), --53
+(40, 'part_time', 15, 24), --54
 (41, 'full_time', 50, 12),
 (42, 'full_time', 50, 15),
 (43, 'full_time', 50, 15),
